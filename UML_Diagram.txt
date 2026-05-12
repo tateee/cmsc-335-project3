@@ -1,0 +1,33 @@
+UML Class Relationships (Text-based)
+
++------------------------+
+|     TrafficSimulatorFrame     |
++------------------------+
+| - timerPanel: TimerPanel      |
+| - lightPanel: TrafficLightPanel |
+| - carPanel: CarPanel          |
++------------------------+
+
++-------------------+         +---------------------+
+|   TrafficLightPanel |<>------|     TrafficLight (Runnable) |
++-------------------+         +---------------------+
+| - lights: List<TrafficLight>|
+| +addIntersection()          |
+| +paintComponent(Graphics)   |
++----------------------------+
+
++-------------------+         +-----------------+
+|     CarPanel      |<>------|      Car (Runnable) |
++-------------------+         +-----------------+
+| - cars: List<Car>           |
+| +addCar()                   |
+| +paintComponent(Graphics)   |
++----------------------------+
+
++-------------------+
+|     TimerPanel    |
++-------------------+
+| - seconds: int     |
+| - thread: Thread   |
+| +start(), stop(), pause(), run() |
++-------------------+

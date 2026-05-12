@@ -1,0 +1,45 @@
+Developer's Guide: Traffic Simulation
+
+
+How to Compile and Run
+
+1. Open a terminal or command prompt.
+2. Navigate to the folder containing the .java files.
+3. Compile: javac *.java
+4. Run: java Main
+
+Project Overview
+
+This project uses a Java Swing GUI as a traffic light simulator. Each component (timer, cars, and traffic lights)
+runs on its own thread. Users can dynamically add cars and intersections through buttons on the GUI.
+
+Design Assumptions
+
+- All cars move horizontally from left to right.
+- Intersections are spaced evenly and cycle their traffic lights independently.
+- Cars do not currently respond to traffic light colors.
+- All updates are handled via threads and GUI repainting.
+
+Button Functionality
+
+Start: Begins the simulation (starts all threads).
+Pause: Pauses the simulation (temporarily stops thread activity).
+Stop: Resets the simulation.
+Add Car: Adds a new car to the road.
+Add Intersection: Adds a new traffic light/intersection.
+
+Lessons Learned
+
+- Java Swing is not inherently thread-safe; care must be taken when updating GUI components from threads.
+- Keeping simulation logic modular (separating panels, using lists) makes dynamic behavior manageable.
+- Using repaint() frequently is important to reflect visual updates.
+
+Test Plan
+
+# | Description                                      | Screenshot     | PASS/FAIL
+--|--------------------------------------------------|----------------|----------
+1 | Add a car and verify it moves across the screen | [screenshot_1] 				| PASS
+2 | Add an intersection and verify it cycles colors | [screenshot_2] and [screenshot_3]		| PASS
+3 | Timer counts every second                       | all screenshots have varying times displayed | PASS
+4 | Multiple cars move independently                | [screenshot_4] 				| PASS
+5 | Multiple intersections update independently     | [screenshot_4] 				| PASS
